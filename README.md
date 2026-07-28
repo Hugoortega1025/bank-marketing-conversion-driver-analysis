@@ -196,17 +196,15 @@ The bank does not have a broadly low-converting customer base — it has a conce
 | File | Description |
 |---|---|
 | `etl/build_star_schema.py` | Builds the star schema (`fact_contacts` + 3 dimension tables) from the raw CSV |
-| `notebooks/01_segment_conversion_analysis.sql` | Databricks SQL notebook source — segment conversion + baseline |
 | `notebooks/Conversion_EDA.ipynb` | Full EDA notebook export — all SQL, narrative, and result tables |
 | `excel/bank_marketing_findings.xlsx` | Excel workbook — data tables + native charts behind every finding above |
-| `excel/build_visuals.py`, `excel/build_readme_images.py` | Scripts that generate the Excel workbook and README chart images |
 | `images/*.png` | Chart images embedded in this README |
 
 ## Tools
 
 - **SQL** — Databricks (Delta Lake) for the star schema and all segment/efficiency/economic-sensitivity analysis
 - **Python (pandas)** — initial ETL and schema design
-- **Excel (openpyxl)** — supporting visuals and data tables
+- **Excel** — supporting visuals and data tables
 - **Tableau** — interactive dashboard (in progress), connected directly to Databricks via the native connector
 
 ## Next Steps & Limitations
