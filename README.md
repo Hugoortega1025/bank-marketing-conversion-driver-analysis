@@ -15,11 +15,13 @@ The central question: **who should get called, how many times, and does it matte
 
 ## Executive Summary
 
-Across 41,176 telemarketing contacts, overall conversion sits at **11.27%**. That average hides a much sharper reality: three factors — life-stage, prior contact history, and call effort — each independently predict conversion far above or below that baseline, and they compound. Customers who are both in a high-converting life-stage group *and* have prior contact history convert at **44.3%**, nearly 4x baseline, while a customer with neither converts at just 7.99%.
+Across 41,176 telemarketing contacts, overall conversion sits at **11.3%**. That average hides a much sharper reality: three factors — life-stage, prior contact history, and call effort — each independently predict conversion far above or below that baseline, and they compound. Customers who are both in a high-converting life-stage group *and* have prior contact history convert at **44.3%**, nearly 4x baseline, while a customer with neither converts at just 8%.
 
-Capping outreach at 3 attempts per lead would eliminate 18.5% of total call volume while forgoing only 12.0% of conversions — an estimated **$38,170** in call center savings at a cited industry cost-per-call figure. Economic conditions at time of contact also matter: conversion was markedly higher during weaker-economy periods, which turned out to explain an initially puzzling gap between contact channels rather than the channel itself being the driver.
+Capping outreach at 3 attempts per lead would eliminate 18.5% of total call volume while forgoing only 12% of conversions — an estimated **$38,170** in call center savings at a cited industry cost-per-call figure. Economic conditions at time of contact also matter: conversion was markedly higher during weaker-economy periods, which turned out to explain an initially puzzling gap between contact channels rather than the channel itself being the driver.
 
-> 📊 **Interactive Tableau dashboard — coming soon**
+> 📊 **Interactive Tableau dashboard**
+> [![Interactive Tableau Dashboard](https://public.tableau.com/static/images/Ba/Bank_Telemarketing_17853686325390/Dashboard1/1.png)](https://public.tableau.com/views/Bank_Telemarketing_17853686325390/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+> 📊 **[View the interactive Tableau dashboard →](https://public.tableau.com/views/Bank_Telemarketing_17853686325390/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)**
 
 ---
 
@@ -34,9 +36,7 @@ The raw source is a single flat CSV (~41K rows, one row per contact attempt). It
 | `dim_campaign` | One row per unique (contact type, prior outcome, days since last contact, prior contact count) combination | |
 | `dim_economic_context` | One row per unique economic snapshot | Keyed independently of `month`, since the source has no year and economic snapshots don't align 1:1 with month labels |
 
-**Pipeline:** raw CSV → Python (`pandas`) ETL builds the star schema → loaded as Delta Lake tables in Databricks (Community Edition) → SQL analysis and reusable views → findings exported to Excel for supporting visuals → Tableau dashboard connected live to Databricks (in progress).
-
----
+**Pipeline:** raw CSV → Python (`pandas`) ETL builds the star schema → loaded as Delta Lake tables in Databricks → SQL analysis and reusable views → findings exported to Excel and Tableau Public for supporting visuals and the dashboard.
 
 ## The Business Problem
 
